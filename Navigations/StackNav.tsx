@@ -3,10 +3,8 @@ import { View, Text } from "react-native";
 import InitialScreen from "../Screens/InitialScreen";
 import BottomTabs from "./BottamTabs";
 import DetailScreen from "../Screens/DetailScreen";
-import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import NewsItem from "../DataType";
 import Foundation from "@expo/vector-icons/Foundation";
-import { Ionicons } from "@expo/vector-icons";
 import { useContext } from "react";
 import { BookmarkContext } from "../bookMarkContext";
 
@@ -55,7 +53,6 @@ const StacNav = () => {
                 color="black"
                 style={{ paddingLeft: 5 }}
               />
-              ;
             </View>
           ),
         }}

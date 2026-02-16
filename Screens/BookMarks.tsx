@@ -36,7 +36,9 @@ const Bookmarks = ({ navigation }: Props) => {
     <View style={styles.HomeContainer}>
       <FlatList
         data={bookmarks}
-        keyExtractor={(item) => item.article_id.toString()}
+        keyExtractor={(item, index) =>
+          item.article_id ? item.article_id.toString() : index.toString()
+        }
         renderItem={({ item }) => {
           const isBookmarked = bookmarks.some(
             (b) => b.article_id === item.article_id

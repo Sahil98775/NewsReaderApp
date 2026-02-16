@@ -6,6 +6,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../Navigations/StackNav";
 type Props = NativeStackScreenProps<RootStackParamList, "DetailScreen">;
+import * as WebBrowser from "expo-web-browser";
 
 const DetailScreen = ({ navigation }: Props) => {
   const route = useRoute();
@@ -26,6 +27,13 @@ const DetailScreen = ({ navigation }: Props) => {
       ),
     });
   }, [navigation, isBookmarked, bookmarks]);
+
+  const openArticle = async () => {
+    if (article.link) {
+      await WebBrowser.openBrowserAsync(article.link);
+    }
+  };
+
   return (
     <ScrollView
       style={{
@@ -63,9 +71,25 @@ const DetailScreen = ({ navigation }: Props) => {
         >
           {article.description}
         </Text>
+
+        <View>
+          <TouchableOpacity onPress={openArticle}>
+            <Text
+              style={{
+                color: "blue",
+                marginTop: 10,
+                textDecorationLine: "underline",
+              }}
+            >
+              Read Full Article
+            </Text>
+          </TouchableOpacity>
+        </View>
+
         <Text style={{ fontSize: 15, paddingTop: 30, paddingBottom: 3 }}>
           {article.creator}
         </Text>
+
         <View
           style={{ flexDirection: "row", alignItems: "center", paddingTop: 3 }}
         >

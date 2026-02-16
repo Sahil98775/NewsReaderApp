@@ -1,12 +1,10 @@
-import { Text, View, FlatList, TouchableOpacity } from "react-native";
+import { Text, TouchableOpacity } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import styles from "../Styles/styles";
 import { useNavigation } from "@react-navigation/native";
-import { Ionicons } from "@expo/vector-icons";
 import Foundation from "@expo/vector-icons/Foundation";
 import { useEffect } from "react";
 
-import HomeScreen from "./HomeScreen";
 const InitialScreen = () => {
   const navigation = useNavigation<any>();
 
